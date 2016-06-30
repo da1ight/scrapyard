@@ -14,7 +14,8 @@ cat ./list.txt | while read line; do
 done
 rm list.txt
 #Stop HAproxy container
-docker ps | grep haproxy | cut -c-12
+id=$(docker ps | grep haproxy | cut -c-12)
+docker stop $id
 #Start HAproxy cantainer with new config
 docker run -d -p 80:80 -v /home/core/haproxy-config:/usr/local/etc/haproxy/ haproxy:1.5
 #echo option httpchk HEAD /index.html HTTP/1.0 >> backendslist.txt
