@@ -1,0 +1,9 @@
+[Unit]
+Description=Dynamically update HAProxy backends
+After=kubelet.service
+Requires=kubelet.service
+
+[Service]
+ExecStart=/home/core/backend.sh
+RemainAfterExit=yes
+Type=oneshot
