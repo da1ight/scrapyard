@@ -1,4 +1,5 @@
 #!/bin/bash
+n=1
 
 #Backup HAproxy cfg
 cp /home/core/haproxy-config/haproxy.cfg /home/core/haproxy-config/haproxy.cfg.$(date +%Y%m%d)
@@ -23,6 +24,7 @@ rm list_nr.txt
 curl http://localhost:8080/api/v1/nodes -s | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}"  | uniq | tee -a list.txt
 cat ./list.txt | while read line; do
     echo "    server k8s_cluster_kubenode$n" $line:$p check | tee -a haproxy.cfg
+    let n=n+1
 done
 rm list.txt
 
