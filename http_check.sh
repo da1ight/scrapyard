@@ -5,7 +5,7 @@ status=`curl -o /dev/null --silent --head --write-out '%{http_code}\n' http://ya
 
 if [[ "$status" != "200" ]]
 then
-echo "Вы получили данное пиьсмо, так как на сайте sobolluxury.ru произошел сбой. Веб севрер и сервер базы данных были перезарущены!" >> /root/check.txt
+echo "Вы получили данное пиьсмо, так как на сайте ya.ru произошел сбой. Веб севрер и сервер базы данных были перезарущены!" >> /root/check.txt
 echo " " >> /root/check.txt
 service apache2 restart >> /root/check.txt 2>&1
 service mysql restart >> /root/check.txt 2>&1
