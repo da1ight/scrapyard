@@ -9,6 +9,13 @@
 # This script should only be used in more or less stable rigs. Do not use it on rigs that aren't properly
 # fine tuned.
 #
+# You can add a cron job like this:
+#cat << EOF | sudo tee /etc/cron.d/rigcheck
+#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+#MAILTO=root
+#*/15 * * * *   root    /home/ethos/rigcheck.sh
+#EOF
+#
 DRY_RUN=false # set this to true in case of testing
 LOG_FILE=/home/ethos/rigcheck.log
 
